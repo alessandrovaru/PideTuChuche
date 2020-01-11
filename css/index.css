@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,500&display=swap');
+body{
+  font-family: 'Montserrat', sans-serif;
+}
+.background-prox{
+  background: radial-gradient(circle, rgba(159,175,255,1) 0%, rgba(255,177,193,1) 100%);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.center{
+
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-prox{
+  width:150px;
+  margin-bottom: 40px;
+  animation: do-levitation 1.2s alternate ease-in-out infinite;
+}
+
+h2{
+  text-align: center;
+  color: black;
+  font-size: 20px;
+  font-family: 'Oswald', sans-serif;
+  overflow: hidden;
+  opacity: 0;
+  animation: revelar 1s ease-in-out 3s;
+  animation-fill-mode: forwards;
+  animation-delay: 2s;
+}
+
+@media (max-width:992px) {
+  .logo-prox{
+    width:300px;
+
+  }
+
+  h2{
+    font-size: 44px
+  }
+
+}
+
+@keyframes revelar {
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+
+  }
+}
+
+@keyframes do-levitation {
+  0% {
+    transform: translate(0, 0);
+
+  }
+  100% {
+    transform: translate(0, 0.5em);
+
+  }
+}
