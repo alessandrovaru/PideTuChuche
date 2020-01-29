@@ -5,18 +5,19 @@ let resultado = document.getElementById('info')
 
 
 function active() {
-  const Ch = new XMLHttpRequest();
-  const url='https://swapi.co/api/people/1';
+  for (let i = 0; i <= 20; i++) {
+    let Ch = new XMLHttpRequest();
+    let url='https://swapi.co/api/people/';
 
+      Ch.onreadystatechange = function() {
+        if (Ch.readyState === 4 && Ch.status === 200) {
+            let datos = JSON.parse(Ch.responseText);
+            resultado.innerHTML += "This my man " + datos.name + "<br>"
+            console.log(datos);
+        }
+      }
 
-  Ch.onreadystatechange = function() {
-    if (Ch.readyState === 4 && Ch.status === 200) {
-      let datos = JSON.parse(Ch.responseText);
-      resultado.innerHTML += "This my man " + datos.name + "<br>"
-    }
+    Ch.open("GET", url + i);
+    Ch.send();
   }
-
-  Ch.open("GET", url);
-  Ch.send();
-
 }
