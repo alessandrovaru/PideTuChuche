@@ -73,7 +73,7 @@ h2{
 
 .cards{
   background-color: #ffffff;
-  height: 250px;
+  height: 210px;
   margin:30px;
   border-radius: 10px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -81,6 +81,10 @@ h2{
 }
 .cards:hover {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.container-product{
+
 }
 
 .padding{
@@ -101,7 +105,8 @@ h2{
 }
 
 .full-wh{
-  height: 100vh;
+  height: auto;
+  min-height: 100vh;
   width: 100vw;
   max-width: 100vw;
   max-height: 100vh;
@@ -110,6 +115,13 @@ h2{
 
 
 .second-section{
+  background-color: #0070ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.third-section{
   background-color: #0070ff;
   display: flex;
   align-items: center;

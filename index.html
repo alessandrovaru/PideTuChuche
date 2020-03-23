@@ -17,6 +17,7 @@
         <img  src="img/logo.png" class="img-fluid logo-prox levitar" alt="">
         <h2>PROXIMAMENTE</h2>
         <button onclick="active()" type="button" name="button"> epa</button>
+        <button onclick="loginOnClick()" type="button" name="button"> log</button>
         <div id="info" class="">
 
         </div>
@@ -27,8 +28,6 @@
 
 
 <div class="opacity">
-
-
     <div class="pos-f-t">
       <div class="collapse" id="navbarToggleExternalContent">
         <div class="bg-dark p-4">
@@ -94,41 +93,75 @@
       </div>
     </section>
     <section class="second-section full-wh">
-      <div class="container">
+      <div id="container-products" class="container">
         <div class="row">
-          <div class="col">
-            <div class="cards">
-
-            </div>
-          </div>
-          <div class="col">
-            <div class="cards">
-
-            </div>
-          </div>
-          <div class="col">
-            <div class="cards">
-
-            </div>
+          <div id="container-product" class="cards container">
+            <p id="serverResponse">ss</p>
           </div>
         </div>
-        <div class="row">
-          <div class="col">
-            <div class="cards">
-
+      </div>
+    </section>
+    <section class="third-section full-wh">
+      <div id="create-product" class="container">
+        <form id="createForm">
+          <div class="form-group">
+            <label for="product_name">Nombre del producto</label>
+            <input type="text" class="form-control" id="product_name" placeholder="Nutella, Pringles, RedBull...">
+          </div>
+          <div class="custom-file">
+            <div class="form-group">
+              <input type="file" class="custom-file-input" id="product_img">
+              <label class="custom-file-label" for="product_img">Elige una imagen</label>
             </div>
           </div>
-          <div class="col">
-            <div class="cards">
-
+          <div class="form-group">
+            <label for="product_description">Descripcion</label>
+            <textarea class="form-control" id="product_description" rows="3" placeholder="que riclino vale"></textarea>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="product_quantity">Cantidad</label>
+                <input type="text" class="form-control" id="product_quantity" placeholder="cuantos">
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="product_priority">Prioridad</label>
+                <input type="text" class="form-control" id="product_priority" placeholder="prioridad">
+              </div>
             </div>
           </div>
-          <div class="col">
-            <div class="cards">
-
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label for="product_price">Precio</label>
+                <input type="text" class="form-control" id="product_price" placeholder="cuantos">
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="product_discount">Descuento</label>
+                <input type="text" class="form-control" id="product_discount" placeholder="prioridad">
+              </div>
             </div>
           </div>
-        </div>
+          <div class="form-group">
+            <label for="product_category">Tipo de producto</label>
+            <select class="form-control" id="product_category">
+
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="product_category1">Producto especifico</label>
+            <select class="form-control" id="product_category1">
+
+            </select>
+          </div>
+          <button onclick="createProduct()" type="button" name="button"> crear</button>
+          <button onclick="printTok()" type="button" name="button"> revisar token</button>
+
+        </form>
       </div>
     </section>
 
