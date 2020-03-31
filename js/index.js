@@ -1,11 +1,23 @@
 console.log('hola');
 
+
+
+
 let resultado = document.getElementById('container-product');
 let sel = document.getElementById('product_category')
 let sel1 = document.getElementById('product_category1')
 let pContainer = document.getElementById('container-products')
 const url = 'https://pidetuchuche-backend.herokuapp.com';
 const req = new XMLHttpRequest();
+
+
+let height = document.getElementById('vhele').clientHeight;
+let scroll = document.getElementById('scrollButton');
+
+
+function scrollHeight() {
+  window.scrollBy(0, height);
+}
 //GET ALL
 function getProducts() {
   req.open('GET', url + '/productos', true);
@@ -17,16 +29,17 @@ function getProducts() {
         console.log(products);
         for (let i = 0; i < products.datos.length; i++) {
           let div = document.createElement('div')
-          div.classList.add("container-products");
-          div.innerHTML = '<div class="wrapper cards"> <div class="row"> <div class="product-info col"><div class="product-text"><h1>' + products.datos[i].nombre + '</h1><h2>' + products.datos[i].nombre + '</div></div></div></div>';
+          div.innerHTML = '<div data-aos="flip-up" class="wrapper cards"> <div class="row"> <div class="product-info col"><div class="product-text"><h1>' + products.datos[i].nombre + '</h1><h2>' + products.datos[i].categorias + '</h2><h3>Precio: ' + products.datos[i].precio  + '$</h3><h4>Stock: ' + products.datos[i].cantidad + '</h4><p>' + products.datos[i].descripcion + '</p><div class="product-data"><button type="button" name="button">Compra</button></div></div></div><div class="product-img col"><img id="productImage" style="background-image: url(' + products.datos[i].ruta_imagen +  ');background-size: cover;background-position: center;height: 320px;" class="img-fluid img-container"></div></div></div>';
           pContainer.appendChild(div);
-
         }
       }
-    }
+    } style="background-image: url();background-size: cover;background-position: center;height: 320px;"
   };
   req.send();
 }
+
+
+
 
 //GET categories
 function getCategorias() {
@@ -52,8 +65,12 @@ function getCategorias() {
   req.send();
 }
 
+
+
  window.onload = function() {
+  scroll.addEventListener("click", scrollHeight);
   getCategorias();
+  getProducts();
  };
 
 
@@ -76,31 +93,39 @@ function createProduct() {
   let product_price = document.getElementById('product_price').value;
   let product_discount = document.getElementById('product_discount').value;
 
-  let product_category = document.getElementById('product_category').value;
-
+  let product_category = [];
+  for (var i=0; i <= 9; i++) {
+    if (document.getElementById(`categoria${[i]}`).checked === true){
+      product_category.push(document.getElementById(`categoria${[i]}`).value)
+    }
+  }
 
   const productData = new FormData();
 
-  productData.append("ruta_imagen", product_img.files[0]);
+  if (product_img.files[0] !== undefined){
+    productData.append("imagen", product_img.files[0]);
+  }
   productData.append("nombre", product_name);
   productData.append("descripcion", product_description);
   productData.append("cantidad", product_quantity);
   productData.append("prioridad", product_priority);
   productData.append("precio", product_price);
   productData.append("descuento", product_discount);
-  productData.append("categorias", product_category);
-
+  if (product_category.length>0) {
+    productData.append("categorias",JSON.stringify(product_category));
+  };
   let producto = {};
   productData.forEach((value, key) => {producto[key] = value});
-  let productoJSON = JSON.stringify(producto);
+  let productoJSON = JSON.stringify(producto,2,2);
 
   req.open("POST", url + '/productos', true);
 
-  req.setRequestHeader("Content-type", "application/json");
+  // req.setRequestHeader("Content-type", "multipart/form-data");
 
   req.setRequestHeader("Authorization", tokenCapitalized);
-  console.log(productoJSON);
-  req.send(productoJSON);
+  console.log('productoJSON:: ',productoJSON);
+  console.log('productData:: ',productData)
+  req.send(productData);
 
 }
 

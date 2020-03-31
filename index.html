@@ -12,12 +12,11 @@
   <body>
     <!-- PROXIMAMENTE -->
 
-    <section class="background-prox">
+    <section id="vhele" class="background-prox">
       <div data-aos="zoom-in" class="center">
         <img  src="img/logo.png" class="img-fluid logo-prox levitar" alt="">
         <h2>PROXIMAMENTE</h2>
-        <button onclick="getProducts()" type="button" name="button"> epa</button>
-        <button onclick="loginOnClick()" type="button" name="button"> log</button>
+        <button id="scrollButton" type="button" name="button"> Busca tu chuche </button>
         <div id="info" class="">
 
         </div>
@@ -39,6 +38,92 @@
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                   Login
                 </button>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#createProduct">
+                  Launch demo modal
+                </button>
+
+                <div class="modal fade" id="createProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <div id="create-product" class="container">
+                          <form id="createForm">
+                            <div class="form-group">
+                              <label for="product_name">Nombre del producto</label>
+                              <input type="text" class="form-control" id="product_name" placeholder="Nutella, Pringles, RedBull...">
+                            </div>
+                            <div class="custom-file">
+                              <div class="form-group">
+                                <input type="file" class="" id="product_img">
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label for="product_description">Descripcion</label>
+                              <textarea class="form-control" id="product_description" rows="3" placeholder="que riclino vale"></textarea>
+                            </div>
+                            <div class="row">
+                              <div class="col">
+                                <div class="form-group">
+                                  <label for="product_quantity">Cantidad</label>
+                                  <input type="text" class="form-control" id="product_quantity" placeholder="cuantos">
+                                </div>
+                              </div>
+                              <div class="col">
+                                <div class="form-group">
+                                  <label for="product_priority">Prioridad</label>
+                                  <input type="text" class="form-control" id="product_priority" placeholder="prioridad">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col">
+                                <div class="form-group">
+                                  <label for="product_price">Precio</label>
+                                  <input type="text" class="form-control" id="product_price" placeholder="cuantos">
+                                </div>
+                              </div>
+                              <div class="col">
+                                <div class="form-group">
+                                  <label for="product_discount">Descuento</label>
+                                  <input type="text" class="form-control" id="product_discount" placeholder="prioridad">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="form-group">
+                              <label>Categorias</label>
+                              <br>
+                              <label>Chocolates </label><input type="checkbox" value="chocolates" id="categoria0">
+                              <lable>Gomitas </lable><input type="checkbox" value="gomitas" id="categoria1">
+                              <label>Cereal </label><input type="checkbox" value="cereal" id="categoria2">
+                              <label>Galletas </label><input type="checkbox" value="galletas" id="categoria3">
+                              <label>Combos </label><input type="checkbox" value="combos" id="categoria4">
+                              <br>
+                              <label>Papitas </label><input type="checkbox" value="papitas" id="categoria5">
+                              <label>Ramen </label><input type="checkbox" value="ramen" id="categoria6">
+                              <label>Chicles </label><input type="checkbox" value="chicles" id="categoria7">
+                              <label>Bebidas </label><input type="checkbox" value="bebidas" id="categoria8">
+                              <label>Alimentos </label><input type="checkbox" value="alimentos" id="categoria9">
+
+                            </div>
+                            <button onclick="createProduct()" type="button" name="button"> crear</button>
+                            <button onclick="printTok()" type="button" name="button"> revisar token</button>
+
+                          </form>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -46,7 +131,7 @@
                     <div class="modal-content">
                       <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLongTitle">Login</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button onclick="loginOnClick()" type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
@@ -91,103 +176,24 @@
       <div class="container">
         <div class="row">
           <div class="col search-form">
-            <h1 class="principal">PideTuChuche</h1>
+            <h1 class="principal">BUSCA TU CHUCHE</h1>
             <form class="form-inline my-2 my-lg-0">
               <input class="form-control mr-sm-2" type="search" placeholder="Busca tu chuche" aria-label="Search">
               <br>
               <br><br>
               <br><br>
               <br>
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+              <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button> -->
             </form>
           </div>
         </div>
       </div>
       <div id="container-products" class="container container-products">
-        <div class="wrapper cards">
-          <div class="row">
-            <div class="product-info col">
-              <div class="product-text">
-                <h1>Nombre del producto</h1>
-                <h2>Categoria</h2>
-                <h3>Precio: 3$</h3>
-                <h4>Stock: 4</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt </p>
-                <div class="product-data">
-                  <button type="button" name="button">Compra</button>
-                </div>
-              </div>
-            </div>
-            <div class="product-img col">
-              <img class="img-fluid img-container">
-            </div>
-          </div>
-        </div>
+        
       </div>
     </section>
 
-    <section class="third-section full-wh">
-      <div id="create-product" class="container">
-        <form id="createForm">
-          <div class="form-group">
-            <label for="product_name">Nombre del producto</label>
-            <input type="text" class="form-control" id="product_name" placeholder="Nutella, Pringles, RedBull...">
-          </div>
-          <div class="custom-file">
-            <div class="form-group">
-              <input type="file" class="" id="product_img">
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="product_description">Descripcion</label>
-            <textarea class="form-control" id="product_description" rows="3" placeholder="que riclino vale"></textarea>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label for="product_quantity">Cantidad</label>
-                <input type="text" class="form-control" id="product_quantity" placeholder="cuantos">
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <label for="product_priority">Prioridad</label>
-                <input type="text" class="form-control" id="product_priority" placeholder="prioridad">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <div class="form-group">
-                <label for="product_price">Precio</label>
-                <input type="text" class="form-control" id="product_price" placeholder="cuantos">
-              </div>
-            </div>
-            <div class="col">
-              <div class="form-group">
-                <label for="product_discount">Descuento</label>
-                <input type="text" class="form-control" id="product_discount" placeholder="prioridad">
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="product_category">Tipo de producto</label>
-            <select class="form-control" id="product_category">
 
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="product_category1">Producto especifico</label>
-            <select class="form-control" id="product_category1">
-
-            </select>
-          </div>
-          <button onclick="createProduct()" type="button" name="button"> crear</button>
-          <button onclick="printTok()" type="button" name="button"> revisar token</button>
-
-        </form>
-      </div>
-    </section> 
 
     <!-- Footer -->
     <footer class="page-footer font-small special-color-dark pt-4">

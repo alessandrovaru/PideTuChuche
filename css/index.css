@@ -77,7 +77,11 @@ h1{
   font-size: 50px;
   font-family: 'Montserrat', sans-serif;
   overflow: hidden;
+}
 
+.first-section h1 {
+    color: #f7c2cd;
+    text-shadow: 0px 0px 12px #f1c9d0;
 }
 
 .container-products h1{
@@ -122,15 +126,14 @@ h1{
 }
 
 .cards{
-  background-color: #ffffff;
+  background-color: #f7c4d0;
   height: auto;
-
   border-radius: 10px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 0 0px 0px rgba(0,0,0,0.12), 5 0px 0px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 .cards:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 14px 28px rgb(240, 205, 214), 0 10px 10px rgb(240, 205, 214);
 }
 
 .second-container{
@@ -143,7 +146,7 @@ background-color: red;
 }
 
 .first-section{
-  background: radial-gradient(circle, rgb(255, 215, 236) 0%, rgba(255,177,193,1) 100%);
+  background: radial-gradient(circle, #4a4a4a 0%, #000000 100%);
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -194,18 +197,17 @@ background-color: red;
 }
 
 .wrapper {
-  height: 320px;
-  width: auto;
-  border-radius: 7px 7px 7px 7px;
-  margin-bottom: 220px;
-  /* VIA CSS MATIC https://goo.gl/cIbnS */
-  -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
-  box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
-  opacity: 0;
-  animation: revelar 1s ease-in-out 3s;
-  animation-fill-mode: forwards;
-  animation-delay: 2s;
+    height: 320px;
+    width: auto;
+    border-radius: 7px 7px 7px 7px;
+    margin-bottom: 40px;
+    -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    animation: revelar 1s ease-in-out 3s;
+    animation-fill-mode: forwards;
+    animation-delay: 2s;
 }
 
 .product-img {
@@ -218,19 +220,14 @@ background-color: red;
 .product-img img {
   border-radius: 7px 7px 7px 7px;
 }
-.product-img .img-container {
-  background-image: url('https://ep01.epimg.net/elpais/imagenes/2017/01/18/buenavida/1484762739_872479_1484830251_noticia_normal.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 320px;
-}
+
 
 .product-info {
   float: left;
   height: 320px;
   width: 507px;
   border-radius: 0 7px 10px 7px;
-  background-color: #ffffff;
+
 }
 
 .product-text {
@@ -242,7 +239,7 @@ background-color: red;
   margin: 0 0 0 38px;
   padding-top: 20px;
   font-size: 34px;
-  color: #474747;
+  color: #000000;
 }
 
 
@@ -253,7 +250,7 @@ background-color: red;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   text-transform: uppercase;
-  color: #d2d2d2;
+  color: #000000;
   letter-spacing: 0.2em;
 }
 
@@ -261,14 +258,14 @@ background-color: red;
   margin: 0 0 0 38px;
   padding-top: 10px;
   font-size: 24px;
-  color: #474747;
+  color: #000000;
 }
 
 .product-text h4 {
   margin: 0 0 0 38px;
 
   font-size: 18px;
-  color: #474747;
+  color: #000000;
 }
 
 .product-text p {
@@ -280,6 +277,7 @@ background-color: red;
   font-size: 15px;
   font-weight: lighter;
   overflow: hidden;
+  color: #000000;
 }
 
 
@@ -297,21 +295,21 @@ span {
 }
 
 .product-data button {
-  display: inline-block;
-  height: 50px;
-  width: 176px;
-  box-sizing: border-box;
-  border: transparent;
-  border-radius: 60px;
-  font-family: 'Raleway', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: #ffffff;
-  background-color: #9cebd5;
-  cursor: pointer;
-  outline: none;
+    display: inline-block;
+    height: 50px;
+    width: 176px;
+    box-sizing: border-box;
+    border: transparent;
+    border-radius: 60px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #ffffff;
+    background-color: #000000;
+    cursor: pointer;
+    outline: none;
 }
 
 
